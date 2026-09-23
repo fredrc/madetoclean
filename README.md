@@ -1,17 +1,20 @@
 # Made to Clean (`madetoclean.pro`)
 
-Private postcard site for **Ave Martin** — single page, services + contact, no shop and no payments.
+Postcard site for **Ave Martin** — single page, services + contact, no shop and no payments.
 
-## Contents
+Repo is **public**. Postcard page is on `main` (`index.html`).
 
-- `index.html` — the live postcard page with Ave's card art embedded as a JPEG data URI
+## Turn on GitHub Pages (one Settings click)
 
-## Hosting
+GitHub’s Actions token cannot create the Pages site the first time. Do this once:
 
-GitHub Pages target: https://fredrc.github.io/madetoclean/
+1. Open https://github.com/fredrc/madetoclean/settings/pages
+2. Build and deployment → Source → **Deploy from a branch**
+3. Branch: **main** / **/(root)** → Save
 
-The repository needs to be public, or GitHub Pages must be enabled manually.
-Custom domain: `madetoclean.pro`.
+Site URL: https://fredrc.github.io/madetoclean/
+
+Custom domain `madetoclean.pro` can be added on that same Pages settings page afterward.
 
 ## Contact on the page
 
