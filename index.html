@@ -1,1 +1,127 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Made to Clean — Las Vegas Cleaning by Ave Martin</title>
+  <meta name="description" content="Residential, apartment, office, move-in/out, and deep cleaning in Las Vegas. Call Ave Martin at (425) 545-4721." />
+  <meta name="theme-color" content="#0a3d5c" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #06324a;
+      --navy-deep: #041f30;
+      --teal: #0a4a66;
+      --gold: #f5c542;
+      --gold-soft: #ffe08a;
+      --orange: #f07a28;
+      --foam: #e8f6fb;
+      --ink: #f4fbff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 20%, rgba(255,255,255,0.12) 0 2px, transparent 3px),
+        radial-gradient(circle at 80% 30%, rgba(255,255,255,0.1) 0 3px, transparent 4px),
+        linear-gradient(160deg, var(--navy) 0%, var(--teal) 45%, var(--navy-deep) 100%);
+      background-size: 180px 180px, 220px 220px, auto;
+    }
+    .frame { max-width: 980px; margin: 0 auto; padding: 1.5rem; }
+    .card {
+      border: 3px dashed rgba(120, 200, 160, 0.85);
+      border-radius: 28px;
+      padding: 1.5rem;
+      background: linear-gradient(180deg, rgba(8, 55, 80, 0.55), rgba(4, 30, 46, 0.72));
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 1.75rem;
+      align-items: center;
+    }
+    .hero-art {
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto;
+      display: block;
+      border-radius: 22px;
+      background: radial-gradient(circle at 50% 40%, #c9eef8, #7ec8dd 70%, #5bb0c9);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    }
+    .panel h1 {
+      margin: 0 0 0.35rem;
+      font-family: "Comic Neue", "Comic Sans MS", cursive;
+      font-size: clamp(2.4rem, 6vw, 3.5rem);
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.01em;
+      line-height: 1.05;
+      text-shadow: 0 2px 0 rgba(0,0,0,0.25);
+    }
+    .owner { margin: 0 0 1.25rem; font-size: 1.15rem; color: var(--foam); }
+    .lede { margin: 0 0 1.25rem; line-height: 1.55; color: rgba(244,251,255,0.92); max-width: 36rem; }
+    .services { list-style: none; margin: 0 0 1.25rem; padding: 0; }
+    .services li { position: relative; padding: 0.35rem 0 0.35rem 1.35rem; font-size: 1.05rem; }
+    .services li::before {
+      content: "";
+      position: absolute; left: 0; top: 0.7rem;
+      width: 0.55rem; height: 0.55rem; border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.25);
+    }
+    .area { margin: 0 0 1.5rem; font-style: italic; color: rgba(232,246,251,0.9); }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+    .phone {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.9rem 1.35rem; border-radius: 999px;
+      background: linear-gradient(180deg, var(--gold-soft), var(--gold));
+      color: #123049; font-weight: 800; font-size: 1.2rem; text-decoration: none;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.28);
+    }
+    .note { font-size: 0.95rem; color: rgba(232,246,251,0.85); }
+    footer { margin-top: 1.25rem; text-align: center; font-size: 0.85rem; color: rgba(232,246,251,0.7); }
+    @media (max-width: 760px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero-art { max-width: 280px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="frame">
+    <section class="card" aria-label="Made to Clean">
+      <div class="grid">
+        <div>
+          <img class="hero-art" src="mascot.jpg" width="600" height="800" alt="Made to Clean mascot — cartoon cleaner with mop bucket" />
+        </div>
+        <div class="panel">
+          <h1>Made to Clean</h1>
+          <p class="owner">Ave Martin</p>
+          <p class="lede">Friendly, thorough cleaning for homes and workplaces in Las Vegas. Tell Ave what you need — she’ll take it from there.</p>
+          <ul class="services">
+            <li>Residential Cleaning</li>
+            <li>Apartment Cleaning</li>
+            <li>Office Cleaning</li>
+            <li>Move In / Move Out Cleaning</li>
+            <li>One Time / Deep Cleaning</li>
+          </ul>
+          <p class="area">Serving Las Vegas</p>
+          <div class="cta-row">
+            <a class="phone" href="tel:+14255454721">(425) 545-4721</a>
+            <span class="note">Call or text to book</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <p>madetoclean.pro · Postcard site for Ave Martin · No online payments</p>
+    </footer>
+  </main>
+</body>
+</html>
