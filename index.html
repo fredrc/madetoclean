@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#0a3d5c" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Handlee&display=swap" rel="stylesheet" />
   <style>
     :root {
       --navy: #06324a;
@@ -16,7 +16,6 @@
       --teal: #0a4a66;
       --gold: #f5c542;
       --gold-soft: #ffe08a;
-      --orange: #f07a28;
       --foam: #e8f6fb;
       --ink: #f4fbff;
     }
@@ -49,21 +48,41 @@
     .hero-art {
       width: 100%;
       max-width: 380px;
+      height: auto;
       margin: 0 auto;
       display: block;
       border-radius: 22px;
       background: radial-gradient(circle at 50% 40%, #c9eef8, #7ec8dd 70%, #5bb0c9);
       box-shadow: 0 12px 30px rgba(0,0,0,0.35);
     }
-    .panel h1 {
-      margin: 0 0 0.35rem;
-      font-family: "Comic Neue", "Comic Sans MS", cursive;
-      font-size: clamp(2.4rem, 6vw, 3.5rem);
-      font-weight: 700;
+    .titles { margin: 0 0 0.85rem; }
+    .titles h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 5.5vw, 3.2rem);
       color: var(--gold);
       letter-spacing: 0.01em;
-      line-height: 1.05;
+      line-height: 1.1;
       text-shadow: 0 2px 0 rgba(0,0,0,0.25);
+    }
+    .titles h1 + h1 { margin-top: 0.35rem; }
+    .font-comic {
+      font-family: "Comic Neue", "Comic Sans MS", cursive;
+      font-weight: 700;
+    }
+    .font-handlee {
+      font-family: Handlee, cursive;
+      font-weight: 400;
+    }
+    .font-label {
+      display: block;
+      margin: 0.15rem 0 0;
+      font-size: 0.7rem;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: rgba(232,246,251,0.65);
+      text-shadow: none;
     }
     .owner { margin: 0 0 1.25rem; font-size: 1.15rem; color: var(--foam); }
     .lede { margin: 0 0 1.25rem; line-height: 1.55; color: rgba(244,251,255,0.92); max-width: 36rem; }
@@ -98,10 +117,13 @@
     <section class="card" aria-label="Made to Clean">
       <div class="grid">
         <div>
-          <img class="hero-art" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgABlgGVAAD//gAQTGF2YzYxLjE5LjEwMQD/2wBDAAgQEBMQExYWFhYWFhoYGhsbGxoaGhobGxsdHR0iIiIdHR0bGx0dICAiIiUmJSMjIiMmJigoKDAwLi44ODpFRVP/xACgAAEAAgIDAQAAAAAAAAAAAAAABgMFBwQBAggBAQACAwEBAAAAAAAAAAAAAAAEAwUBAgYHEAACAQIEAwUFBgMFCQEAAAAAAQIDETEhEgQFQVFhcTITgVKRobEicsFikkIUBvAz4dEjQ4IlY+IWsqOiUxUkEQACAQIFAwMCBwEBAAAAAAAAAQIDESExEkEEYVETwXEikbHRgQXhUkIyofH/wAARCADLAWgDASIAAhEAAxEA/9oADAMBAAIRAxEAPwDf4AAAAAAAAAAAAAAAAAAAAAAAAB0ADy2lm8rC5prjPFlOo6NN6oRxSyU5dZP2V+lLF5lU56FfPsu5dCGt2yW77GwavFdvB2hqqv8AD4fzSaT9LmN/+y//AEf9z/gNC1N/uFnr0dFFL+1sspcU3EfFFTXWUXF+9ZfAxMp8l4x0Lp+7MvGHFWEtb65f8R9CU+L0ZZTjOn2u0o++N2vVEmjOM0pRakng07p+poHb7ynuMleMvZfPufP5kh228ns5pxzg39UOT7ukuj54Mrp8uSlpqxt1Xqiypw4uOqlK/R+j7+5uE7OHSqwrQU4PVGWD+59GuaOSegPOnsHR2aNgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6ABWDw2dHNyHcZ4rHh1Gyzq1E9C6LDW+xcurPnHU8efxNjfxHSl59SrNPGjCn0UdEm2u3UrGvNnOjKulX/p6ZerSvb1s0Q6n2JtO1vc2Nwja0nB1ZOFSb5XUtC6PGzeLJBu5ya8mG2ddSjn9ShCKw8T59iOBR3ENvXht5U6NKdWKtGnbVG8dcYzyWenmrxTyuSGvTdSlUtqemEp6YtqU9KuoJrNXeNs7GKcZeSz37/sZVSXjbTy7fuaa3G2r7XOdOUI3yldOz5fVHmuTyMxR3Xn0mpf1IY/iXKXvxMhw+Mt7Rr31xpPzKflzzvzhJXb0yWalbJ5Edezltduq+qWuKXmReFp4RXO6umbqwU8HbUng0bo1HB6lfS80/ubR4bxKlt6PhnOVSTlLBKPJJJvN2WZsOhuqW5V4Sz5xeUl3r78D5+2eqUIyi8ueSb7Vfk+jd0bw2FGhCnGpSu3NZylnLtj0VnyWVy/jVJyk4fDTBWtjqRTy6dOEVP56pu98NL/AAJGe7lBYZowJaDyejk6AANGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADo8nZWzo5PLOPKcYuKbScsE+duhY3ZNvJLE0RxPidfiMKipxjDawlZTlk5yWGmWOrnaGaWLNt2OUtRNP4jr7eOylSnaVSbXlxv9UWn430SV++9jQG2lGjWhKeSV3d8nyZbK+Mnn7/iY2fUgyesyEY6Ou5v2rtqFStHdtRjOEEozbtGyVouXcsrmQlWVKDqSvGKz1cvSTsn6GrOHcb8mCobiOqCWlTSu1H2ZR/UviSijR2EvrhWU4Xyg25NfhSf1W7LGLlGz+ep9rGWg4tfHTHv/wCEkU1Gj50loWjzGumV/eah3vFJb2KioKnG6lPPU5NZK76LoZ7ju7qypwhG8Kc27rnLTbHouz3muI4SZbSgravp0KKs3fT0NkcEltpSdCu3TcnenUTtnzhK9454xuscjeu1262sXBSnJN3+q2T7LJYnyfF5WwfU+h+B1606VSjWeqVBw0z9qnOOqD93wMpTUdV9K1Wtq3MXVctNtT056dvyJ4WFBYTCCXHspLEcFpYADg6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB0AeWUljKWWIrZxK0PNpVKd7a4SjfpqTVz544xGe1ltts1pjR28clg5yb1y7btYm997+5VNS22hzi76J+Goucb8nzTPnjjFTeVa6nu6flScbRjllFPlm3jfN4ldTIsp5kX13zZONhwWW4Sq7jVCD8MFlJ9r9lfFlvCdjoS3Fai2v0XxS9vRbPsvn0NrRakrrO/PqW0KcJ3badtu3uVcirOFkk1f8As9/YiUuB7GSt5bj2qc/vbLdtsKW0Wharam7vnfk+jJJrjqtcuauTK3HhVjb/AD2aIVHkzpS1f66P0I1v+H093Tipao+XeSa7s73Ix/y7Bxuq00+jiml34GxvLh0Rc1dWw7SPQ4vjTU2pdtrEivy/I04Jx773Pnjc7ars6sqdTG2TWEl1R9I7B7VU4eTOMnOEMGnJqnBRwxWlLPtIVvtl+/oaclVpt2fbzXdJZk42W02u2jqoU4R1pXlFZy9+az5dTXi8cn2eRvy+SK7rNEgLSgtR0zlFyLClFhSXIuPR4R7OCwAA0bAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB0zs8gFTKmWMqZaillTNd73aUN5vI1pLV5MdFv0ykpN4dI4dr7jYZCop026UvFD/yjyku/n23IXKk4ww3eL7E3ixUp47LBdzqpONOLlNpRSzbwsa5fGqMI1NF2r/RHBt8+6LxJnu6FCrF+d4JLQ7POLeFSK5yi+x3VzWm94JLa7bz41oVY60lpTvJSyVo28SeKzI3FvC84u7s1bt1ZK5Vp2hJWV079+iM9wrfPcObn44yvZYaXhbuwNkKSkro0VttvutjuqLq05UlNZuSelxkr5vBPseDxNybdwcbqUW30aPVUZ64Y5rBnla0FCWGTxRkXJI7uVrTftOJXmoweaWRJIlzFRrylVq6I6rytf9P0pK/bzyJbw+6pSUpap65OXrhZLBNW9bkdhS/b+VjoqRTTeKk1dxfe7tevQy0ZOnPXFX5Sj7S7O1cvVHl5cqXmcZ/GOS9Hc9THix8KlBuUs36qxKy1HEhOM4qUXdPA5KMkY05CLEUlpSy5FpYVItKmXHYANGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeT0eGAVMpZcyllyKGVMxW4oKulnplHwyXLs7U+aMoyksaUlZ4plWpxd1g0aqlUdSctVrxbjZYJRdsu+1zmUN1U27tGKlF5tN2UX7SfzXMlFfh1Cs3JJ05PPVDK76tYP5kB4g58MS16aik7QadpO3WOKt1V0eSlx+TQqa6fyvgrY4PZo9jHkcXkUtFT42V3fDFbpo5G5r1a2U3rV76E3DD2Vg2u1mMp2azUWr5OSs38zhUq09zGMlFx1Xum7xTX6oyxWfInHDt5t9qqkK2jJateluTbu9LyfosiKlUq1NM5tT73e22GRLlKlQpaowThhhgljvjmR+yWC90n9xiqso2d0ksL4/VbDP5mXrbn95X1wpqhCKtpVryzeb02XTqYyrFtTXJfWu/C3wK5ynCWnyykukperLKXjqw1qjGGLWMY429if0NzT31JUZ3hPSrP8UViujWOl8juLldwmrTjiuv4l1TI5w16dzBSzjZ+X1Tayv1yukTbf0ZVaMnCLdSPhtlK11qS71fIzqT5NHW7ao3WG6Xqefk1xa/jV9ErPHZvr2MNDexoTlaMpxectNspdY3ed+duZNoTjUjGUXdSSafYzUkJZWtZrJrC3piSjY7xUf8OplDGMuUW8U+ieKfIp4nLvLxzw/jf7Mv5nD0x8kMf5W+6J4i4oWeBej0LPOItLCotRUXI9AA5OgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeWejybBUyll7KWWopZQykvZSy5FDKj534zuXut7UeMaX+HD/Ti/WVzf8AXqeTRqVPYhKXuTZ8z7ePm1qaeblNN/Nll9KlL+Kb+hzGOqSj3aX1NgQXk0oQSbtHl2f2nMnQozpvCUrXck3dv0fwPNry9F8bnpxTxSPmsKmltu7bxv7nveXxJ8iEYRmoqP8AVrB2yuZzbcIlUhGoqtP6oqzSk13PNWawwI/VpTp1JwaV/DJPlbmux3ubI4Qv/wAcUvbqW/OzBcWp6a0Ki/zI2f2o/wBj+Blq9CKpKpBPJXu74Mj8avPyulO2LeSS+S/Eh0VOnaWS0Zxtzs7q/uNuwkpxjJYSSa7nmateBPuHy1ban+G8fytr5En9NnjOPtL0ZH/VKeFOfvF/dGL4pSioQrWV4ySlL8LTx9bY4EShUjUipJ5YZ5O/QnVZPd1XQTtCOc2uvrle+F+ab5IwsOCyjdefaOrVdQ+p97btf3nfM4rqz1QWLsnkl7sr4XLVKGio7JXazbx2Q4dv6dKbo1J6YtXhfBPmuxO9+l7myERyhsNrSpypxipqXicnqk7YZ8rcrWK9m5bavLayblG2ujJ46ecfT7u0ytKMoU4xk7tIxFaUJ1JSgrJvIliLUVItLWVI9AA5OgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdHZ0AVsqZcVMsRWyhlLOQVMuRHZEuMT0cP3D6w0/mkl95o/h0dW4T9mMn933m3f4jnp2DXt1IL3Xf3Gk6Nee3lqhbCzTwaNVYynRqRhi2rIuoSjCtTlLCKkmzZsk73Xu6lUpSt4WYCnxWi8qilTf5o/DP4EghVhUipxleLwedj5xOlUp4ShJe6Z9KhVp1FeM4v2ZsbhE0tpFZXUp3zWX1PHMi+73ktxNwSh5dOcrSTu5PNXvhbuI1LyVnJxXW7SRxZb7a01/Uj3R+r5GUnyJVKapxi8rPC9zFQ4sadR1Jzjm2sbWd98TLSwJTsNxChtakpuyjUl63inZGpK3FU1/hU33zyXuWfxNiV9ulwunUSvKUYzmr+J1IxTt0tlp7rE7hUKtOTnKLinFrHP6EHn16VWChGSk9SeGX1OTsd5UnUnRo0lOpqcpylKySVl8+3FmxHRTtZvLxJ56v57DX3DeI0KNPS1BNylLV4W9Tvm2rdniWBMo76jLNN+jjL/pkz0FzzNjIyWpqz0tdnL+41/u95KnuNrUrUnS0Tl9V8pweTtku+zdyZy3lFZtyVudrfOxFd7vtlXg4VIxqY2u1KUW+a0Xz9UaOrE5o1YVoqcJKUXz+59Gc0hnBaXl7bUrpTdoqWNoNq75XbvksFZEzOTo7ABo2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeCtlxWdHLKCtlxROUacZSk7RinJvsSuy0pNO/xRuM6G3XK9Vv3xS+bNUHP3e5nvNxUryxm8l7Mf0x9EY29jIxVkRHmWQpTr1KdKCvOpJRj6/cuZ9S7bbw2tCnRh4acVHv6v1eZqn+GNkpyqbuWelunT77fVL3Oy9Tc5Hm7ssSsRPjVDz+H7iKWcY613wer5XPmyMVa59Vb7T+03Gq9vJqXtj4GfLEcDqBqR6eDPpedP/Z2npQg/wAsU/uPmWWDPq6jattqdsJ0o+6UBUNxNTUUlJqxnJ0KTpp+XC+WelGEp5T/AJ6Ekf8ASXoQCcYN0aSXgj7kY6VtWGBmpYGLpR82vGPtSUffJIA3TtKflbelHpCN++138TKHlHo5AABo2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwezo2aKjX/8QbidPbKjTaUq+qLv7KWfde9rmwiGcZ2sa9Om8KinaEuxptp9jsWJpYvJZnDTeCzeR83SjKDtJNHHk7I2NU21WGUqbfd9S/v+BTQ4XU3lRKFBxjqtObioqOF8eduhktcZK6lF+zILjJOzi1+Rtzg+1/abChTficdcvtT+r4Ky9CSncYKEVFKyikkuiSsj0QLkmxgeI2Wy3OrJeTU+MbL4ny2sD63r0VXpVKTwnCUe66tc0XW4fuNrLy5wU3a6lGzTTv1s+RIhJK92l7lUk3km/Y1+k5YJvuPpbg9XztjQutLhHy2r3zp5X9TU0dtWs7U2rK+bSWXdc3ZsNotnQjTT1Yybwu5Zuy5I5nKMspJtdnc6jGSzi1fvga43NGW33LUlZOTcXyabbyfzRkX/AEv56mzJQjNaZRUk+TV17mYx8P2z/wAvT2RlOK9ykkRCUaym8jkcJpOruoytdQeqT5LJ2V+t7ZGwlwzac6er7UpyXucrGbhThTjphGMUuUUkvgaNlx2AcmwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADojG/f10o/bl8kvmzL7rcw2lJ1J3srJJc28ERXzKO4jrjVnKqo+Fq9+emMUsO595RUu4NLMkU8JKTvZPM4NS9rRV5SajFdWybbegtvSjTXLF9ZPF+rIZta0Zb6nC1/olb8M2uf+lSRsOxG40LLVu/sSeTJtqOyxKjotOjKGLKyN8Rp5U6vsS0v7M8vnYlBGOLVXT2+mKu6jt1sl9TaXXLIpqLVCS6F1K6nFruYGp4J/Zl8jYMcF3IgkJUmnOtqVK1rq6UpP8ATydrdMurMptN9SqVvJiqijJXhqz8K+pXbbtzWZB40XFNvfIyHJ+TwTenN7ErOzs9GSMUDsA5OgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUVKkKUdUmkv5ySxb7FmXmFvqr1G438vTGNs9N1du3be110AIhvluty9cqclTj4YKS1faksb9lsjLbHZKCVSecnZ93RpuzTaeDJG5xataT/wBLMbVnK0Y2eqWEU1ql2vkl1d/U0TPI9GlK3fqYrcVl+7oRivBUi5NL2/pzt2MmxH6e1m2nPTFJqWmObbTuryslj0XqSE2R5O9uiOgdgFZ5IfxGUlXoNRbVJObt2tLv5MmRj6tDXJTjJwmla9rpro1/c0wWRelplcowrwxumscrq65dGQKpw+rGqo0sl4oTu1otfJNvHrliS6UalJ6pJW5zp3y+1F529ZehzoycvqSjNPBwf8/M0Xwm4X3T2ZVSr1IJLcJReHmRvoff7L78ujM0YupL6ZaoxjFqzc2rWLdrq8mnqvfSscX0b70bIzOeAAcgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4c6EKj1O6lhqi3GXvWPczmAAxv7f/fVvzL5qN/icinRhSvpWbxbu5Pvk7tnKAAAAAAAAAAAODLbUZO7pxv1Ss/erHOABwY7ajF3UI36vN+93OcAAAAAAAAAAAAAAAAAAAAAAAAAAAeWeTQP/9k=" width="600" height="800" alt="Made to Clean mascot — cartoon cleaner with mop bucket" />
+          <img class="hero-art" src="mascot.jpg" width="1600" height="900" alt="Made to Clean mascot — cartoon cleaner with mop bucket" />
         </div>
         <div class="panel">
-          <h1>Made to Clean</h1>
+          <div class="titles">
+            <h1 class="font-comic">Made to Clean<span class="font-label">Comic Neue</span></h1>
+            <h1 class="font-handlee">Made to Clean<span class="font-label">Handlee</span></h1>
+          </div>
           <p class="owner">Ave Martin</p>
           <p class="lede">Friendly, thorough cleaning for homes and workplaces in Las Vegas. Tell Ave what you need — she’ll take it from there.</p>
           <ul class="services">
