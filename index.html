@@ -45,17 +45,36 @@
       gap: 1.75rem;
       align-items: center;
     }
-    .hero-art {
+    .hero-wrap {
+      position: relative;
       width: 100%;
       max-width: 420px;
-      height: auto;
       margin: 0 auto;
+    }
+    .hero-art {
+      width: 100%;
+      height: auto;
       display: block;
       border-radius: 22px;
       background: #fff;
       box-shadow: 0 12px 30px rgba(0,0,0,0.35);
       object-fit: cover;
+      cursor: pointer;
     }
+    .sound-hint {
+      position: absolute;
+      left: 0.75rem;
+      bottom: 0.75rem;
+      border: 0;
+      border-radius: 999px;
+      padding: 0.45rem 0.85rem;
+      font: 600 0.85rem/1.2 "Segoe UI", system-ui, sans-serif;
+      color: #123049;
+      background: rgba(255, 224, 138, 0.95);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      cursor: pointer;
+    }
+    .sound-hint[hidden] { display: none; }
     .panel h1 {
       margin: 0 0 0.35rem;
       font-family: Handlee, cursive;
@@ -90,7 +109,7 @@
     footer { margin-top: 1.25rem; text-align: center; font-size: 0.85rem; color: rgba(232,246,251,0.7); }
     @media (max-width: 760px) {
       .grid { grid-template-columns: 1fr; }
-      .hero-art { max-width: 100%; }
+      .hero-wrap { max-width: 100%; }
     }
   </style>
 </head>
@@ -99,19 +118,22 @@
     <section class="card" aria-label="Made to Clean">
       <div class="grid">
         <div>
-          <video
-            id="mascot-video"
-            class="hero-art"
-            poster="mascot-poster.jpg"
-            width="720"
-            height="392"
-            muted
-            playsinline
-            preload="auto"
-            aria-label="Made to Clean mascot cleaning with sparkles, then winking"
-          >
-            <source src="mascot-anim.mp4" type="video/mp4" />
-          </video>
+          <div class="hero-wrap">
+            <video
+              id="mascot-video"
+              class="hero-art"
+              poster="mascot-poster.jpg"
+              width="720"
+              height="392"
+              muted
+              playsinline
+              preload="auto"
+              aria-label="Made to Clean mascot cleaning with sparkles"
+            >
+              <source src="mascot-anim.mp4" type="video/mp4" />
+            </video>
+            <button type="button" class="sound-hint" id="sound-hint" aria-label="Tap for sound">Tap for sound</button>
+          </div>
         </div>
         <div class="panel">
           <h1>Made to Clean</h1>
@@ -139,16 +161,37 @@
   <script>
     (function () {
       var video = document.getElementById("mascot-video");
+      var hint = document.getElementById("sound-hint");
       if (!video) return;
-      // Play once, about one second after load. Muted + playsinline for mobile autoplay.
-      function startOnce() {
-        video.loop = false;
+      video.loop = false;
+
+      function playMutedOnce() {
+        video.muted = true;
         var p = video.play();
         if (p && typeof p.catch === "function") {
-          p.catch(function () { /* autoplay blocked; poster stays */ });
+          p.catch(function () {});
         }
       }
-      window.setTimeout(startOnce, 1000);
+
+      function enableSound() {
+        video.muted = false;
+        if (hint) hint.hidden = true;
+        if (video.ended || video.paused) {
+          video.currentTime = 0;
+          var p = video.play();
+          if (p && typeof p.catch === "function") {
+            p.catch(function () {});
+          }
+        }
+      }
+
+      window.setTimeout(playMutedOnce, 1000);
+
+      video.addEventListener("click", enableSound);
+      if (hint) hint.addEventListener("click", function (e) {
+        e.stopPropagation();
+        enableSound();
+      });
     })();
   </script>
 </body>
