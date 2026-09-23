@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Made to Clean — Las Vegas Cleaning by Ave Martin</title>
-  <meta name="description" content="Residential, apartment, office, move-in/out, and deep cleaning in Las Vegas. Call Ave Martin at (425) 545-4721." />
+  <meta name="description" content="Residential, apartment, office, move-in/out, and deep cleaning in Las Vegas. Call or text Ave Martin to book." />
   <meta name="theme-color" content="#0a3d5c" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -108,12 +108,15 @@
     }
     .area { margin: 0 0 1.5rem; font-style: italic; color: rgba(232,246,251,0.9); }
     .cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
-    .phone {
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 0.9rem 1.35rem; border-radius: 999px;
-      background: linear-gradient(180deg, var(--gold-soft), var(--gold));
-      color: #123049; font-weight: 800; font-size: 1.2rem; text-decoration: none;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.28);
+    .phone-img {
+      display: block;
+      height: 3.1rem;
+      width: auto;
+      max-width: 100%;
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,0.28));
+      user-select: none;
+      -webkit-user-drag: none;
+      pointer-events: none;
     }
     .note { font-size: 0.95rem; color: rgba(232,246,251,0.85); }
     footer { margin-top: 1.25rem; text-align: center; font-size: 0.85rem; color: rgba(232,246,251,0.7); }
@@ -153,7 +156,15 @@
           </ul>
           <p class="area">Serving Las Vegas</p>
           <div class="cta-row">
-            <a class="phone" href="tel:+14255454721">(425) 545-4721</a>
+            <img
+              class="phone-img"
+              src="phone.png"
+              width="720"
+              height="140"
+              alt="Phone number"
+              decoding="async"
+              draggable="false"
+            />
             <span class="note">Call or text to book</span>
           </div>
         </div>
