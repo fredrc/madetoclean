@@ -4,11 +4,14 @@ Private postcard site for **Ave Martin** — single page, services + contact, no
 
 ## Contents
 
-- `index.html` — the live postcard page (card art embedded)
+- `index.html` — the live postcard page with Ave's card art embedded as a JPEG data URI
 
 ## Hosting
 
-GitHub Pages. Custom domain: `madetoclean.pro`.
+GitHub Pages target: https://fredrc.github.io/madetoclean/
+
+The repository needs to be public, or GitHub Pages must be enabled manually.
+Custom domain: `madetoclean.pro`.
 
 ## Contact on the page
 
