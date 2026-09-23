@@ -47,13 +47,14 @@
     }
     .hero-art {
       width: 100%;
-      max-width: 380px;
+      max-width: 420px;
       height: auto;
       margin: 0 auto;
       display: block;
       border-radius: 22px;
-      background: radial-gradient(circle at 50% 40%, #c9eef8, #7ec8dd 70%, #5bb0c9);
+      background: #fff;
       box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+      object-fit: cover;
     }
     .panel h1 {
       margin: 0 0 0.35rem;
@@ -89,7 +90,7 @@
     footer { margin-top: 1.25rem; text-align: center; font-size: 0.85rem; color: rgba(232,246,251,0.7); }
     @media (max-width: 760px) {
       .grid { grid-template-columns: 1fr; }
-      .hero-art { max-width: 280px; }
+      .hero-art { max-width: 100%; }
     }
   </style>
 </head>
@@ -98,7 +99,19 @@
     <section class="card" aria-label="Made to Clean">
       <div class="grid">
         <div>
-          <img class="hero-art" src="mascot.jpg" width="1000" height="562" alt="Made to Clean mascot — cartoon cleaner with mop bucket" />
+          <video
+            id="mascot-video"
+            class="hero-art"
+            poster="mascot-poster.jpg"
+            width="720"
+            height="392"
+            muted
+            playsinline
+            preload="auto"
+            aria-label="Made to Clean mascot cleaning with sparkles, then winking"
+          >
+            <source src="mascot-anim.mp4" type="video/mp4" />
+          </video>
         </div>
         <div class="panel">
           <h1>Made to Clean</h1>
@@ -123,5 +136,20 @@
       <p>© Ave Martin · Las Vegas</p>
     </footer>
   </main>
+  <script>
+    (function () {
+      var video = document.getElementById("mascot-video");
+      if (!video) return;
+      // Play once, about one second after load. Muted + playsinline for mobile autoplay.
+      function startOnce() {
+        video.loop = false;
+        var p = video.play();
+        if (p && typeof p.catch === "function") {
+          p.catch(function () { /* autoplay blocked; poster stays */ });
+        }
+      }
+      window.setTimeout(startOnce, 1000);
+    })();
+  </script>
 </body>
 </html>
