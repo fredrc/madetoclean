@@ -51,13 +51,39 @@
       max-width: 340px;
       margin: 0 auto;
     }
+    /* Business-card style oval: white center → sky blue edge (pure CSS) */
+    .hero-oval {
+      position: absolute;
+      z-index: 0;
+      left: 7%;
+      right: 7%;
+      top: 5%;
+      bottom: 3%;
+      border-radius: 50%;
+      background:
+        radial-gradient(
+          ellipse 70% 65% at 50% 42%,
+          #ffffff 0%,
+          #f2f9ff 28%,
+          #c5e0f8 58%,
+          #8fc0eb 82%,
+          #6eade4 100%
+        );
+      border: 6px solid var(--gold);
+      box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.28),
+        inset 0 0 36px rgba(110, 173, 228, 0.25);
+      pointer-events: none;
+    }
     .hero-art {
+      position: relative;
+      z-index: 1;
       width: 100%;
       height: auto;
       display: block;
       background: transparent;
       object-fit: contain;
-      filter: drop-shadow(0 14px 28px rgba(0,0,0,0.35));
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.28));
     }
     .panel h1 {
       margin: 0 0 0.35rem;
@@ -103,6 +129,7 @@
       <div class="grid">
         <div>
           <div class="hero-wrap">
+            <div class="hero-oval" aria-hidden="true"></div>
             <img
               class="hero-art"
               src="mascot.png"
