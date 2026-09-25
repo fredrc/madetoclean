@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#0a3d5c" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --navy: #06324a;
@@ -20,6 +20,7 @@
       --ink: #f4fbff;
     }
     * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
     body {
       margin: 0;
       min-height: 100vh;
@@ -31,11 +32,11 @@
         linear-gradient(160deg, var(--navy) 0%, var(--teal) 45%, var(--navy-deep) 100%);
       background-size: 180px 180px, 220px 220px, auto;
     }
-    .frame { max-width: 980px; margin: 0 auto; padding: 1.5rem; }
+    .frame { max-width: 980px; margin: 0 auto; padding: 1.25rem 1rem 1.75rem; }
     .card {
       border: 3px dashed rgba(120, 200, 160, 0.85);
       border-radius: 28px;
-      padding: 1.5rem;
+      padding: 1.35rem;
       background: linear-gradient(180deg, rgba(8, 55, 80, 0.55), rgba(4, 30, 46, 0.72));
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
     }
@@ -48,7 +49,7 @@
     .hero-wrap {
       position: relative;
       width: 100%;
-      max-width: 340px;
+      max-width: 320px;
       margin: 0 auto;
     }
     /* Business-card style oval: white center → sky blue edge (pure CSS) */
@@ -87,17 +88,17 @@
     }
     .panel h1 {
       margin: 0 0 0.35rem;
-      font-family: Handlee, cursive;
-      font-size: clamp(2.4rem, 6vw, 3.5rem);
-      font-weight: 400;
+      font-family: "Comic Neue", "Comic Sans MS", cursive;
+      font-size: clamp(2.2rem, 7vw, 3.5rem);
+      font-weight: 700;
       color: var(--gold);
       letter-spacing: 0.01em;
       line-height: 1.05;
       text-shadow: 0 2px 0 rgba(0,0,0,0.25);
     }
-    .owner { margin: 0 0 1.25rem; font-size: 1.15rem; color: var(--foam); }
-    .lede { margin: 0 0 1.25rem; line-height: 1.55; color: rgba(244,251,255,0.92); max-width: 36rem; }
-    .services { list-style: none; margin: 0 0 1.25rem; padding: 0; }
+    .owner { margin: 0 0 1.1rem; font-size: 1.15rem; color: var(--foam); }
+    .lede { margin: 0 0 1.15rem; line-height: 1.55; color: rgba(244,251,255,0.92); max-width: 36rem; }
+    .services { list-style: none; margin: 0 0 1.15rem; padding: 0; }
     .services li { position: relative; padding: 0.35rem 0 0.35rem 1.35rem; font-size: 1.05rem; }
     .services li::before {
       content: "";
@@ -106,23 +107,47 @@
       background: var(--gold);
       box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.25);
     }
-    .area { margin: 0 0 1.5rem; font-style: italic; color: rgba(232,246,251,0.9); }
-    .cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+    .area { margin: 0 0 1.35rem; font-style: italic; color: rgba(232,246,251,0.9); }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem 0.85rem;
+      align-items: center;
+    }
     .phone-img {
       display: block;
-      height: 3.1rem;
+      height: 3.25rem;
       width: auto;
-      max-width: 100%;
+      max-width: min(100%, 22rem);
       filter: drop-shadow(0 8px 18px rgba(0,0,0,0.28));
       user-select: none;
       -webkit-user-drag: none;
       pointer-events: none;
     }
     .note { font-size: 0.95rem; color: rgba(232,246,251,0.85); }
-    footer { margin-top: 1.25rem; text-align: center; font-size: 0.85rem; color: rgba(232,246,251,0.7); }
+    footer {
+      margin-top: 1.15rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: rgba(232,246,251,0.7);
+    }
+    footer p { margin: 0; }
     @media (max-width: 760px) {
-      .grid { grid-template-columns: 1fr; }
-      .hero-wrap { max-width: 100%; }
+      .frame { padding: 0.85rem 0.75rem 1.35rem; }
+      .card { padding: 1.1rem 1rem; border-radius: 22px; }
+      .grid { grid-template-columns: 1fr; gap: 1.1rem; }
+      .hero-wrap { max-width: 240px; }
+      .hero-oval { border-width: 5px; }
+      .panel h1 { text-align: center; }
+      .owner, .lede, .area { text-align: center; }
+      .services { max-width: 22rem; margin-left: auto; margin-right: auto; }
+      .cta-row { justify-content: center; }
+      .phone-img { height: 2.85rem; }
+      .note { width: 100%; text-align: center; }
+    }
+    @media (max-width: 380px) {
+      .hero-wrap { max-width: 200px; }
+      .phone-img { height: 2.55rem; }
     }
   </style>
 </head>
@@ -136,10 +161,11 @@
             <img
               class="hero-art"
               src="mascot.png"
-              width="720"
-              height="989"
+              width="640"
+              height="879"
               alt="Made to Clean mascot — Ave ready to clean"
               decoding="async"
+              fetchpriority="high"
             />
           </div>
         </div>
